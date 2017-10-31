@@ -39,7 +39,6 @@ def main():
             return
         calculated_hash_value = md5(path_to_file)
 
-    print 'Calculated hash value: %s' % calculated_hash_value
     if hash_value == calculated_hash_value:
         print 'success'
     else:
