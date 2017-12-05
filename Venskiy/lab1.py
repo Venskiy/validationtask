@@ -19,6 +19,10 @@ def main():
         print 'err: you must pass 3 arguments'
         return
 
+    if len(sys.argv) > 4:
+        print  'err: you must pass 3 arguments'
+        return
+
     if func not in ['-md5', '-crc32']:
         print 'err: you can pass only -md5 or -crc32 as a hash function'
         return
