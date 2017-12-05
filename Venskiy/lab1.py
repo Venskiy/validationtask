@@ -33,17 +33,17 @@ def main():
 
     calculated_hash_value = ''
     if func == '-crc32':
-        if not re.findall(r'([a-fA-F\d]{8})', hash_value) and len(hash_value) != 8:
+        if not re.findall(r'([a-fA-F\d]{8})', hash_value) or len(hash_value) != 8:
             print 'err: wrong crc32 format'
             return
         calculated_hash_value = crc32(path_to_file)
     elif func == '-md5':
-        if not re.findall(r'([a-fA-F\d]{32})', hash_value) and len(hash_value) != 32:
+        if not re.findall(r'([a-fA-F\d]{32})', hash_value) or len(hash_value) != 32:
             print 'err: wrong md5 format'
             return
         calculated_hash_value = md5(path_to_file)
 
-    if hash_value == calculated_hash_value:
+    if hash_value.lower() == calculated_hash_value.lower():
         print 'success'
     else:
         print 'err: hashes don\'t match'
